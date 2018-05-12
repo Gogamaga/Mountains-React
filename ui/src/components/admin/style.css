@@ -1,0 +1,43 @@
+.list-item-for-add-image {
+    display: flex;
+    align-items: center;
+}
+.list-item-for-add-image > div:first-child {
+    width: 100px;
+}
+.list-item-for-add-image > div:first-child > img {
+    width: 100%;
+}
+.list-item-for-add-image > div:last-child {
+    width: 100%;
+    margin-left: 10px;
+}
+.list-item-for-add-image-wrap > div:last-child {
+    display: flex;
+    justify-content: flex-end;
+}
+.list-item-for-add-image-wrap {
+    border-bottom: 1px solid #6c757d;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+@keyframes tooltip {
+    50% {
+        top: 15px;
+    }
+    100% {
+        top: 50px;
+    }
+}
+.tooltip-response {
+    padding: 15px 20px;
+    border-radius: 2px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #23232467;
+    color: white;
+    font-size: 1.1rem;
+    animation: tooltip 5s ease;
+}
