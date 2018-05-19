@@ -9,7 +9,6 @@ const router = {
             .catch(err => res.send(err));
     },
     getAll(req, res) {
-        countries.getCountriesSliced(0, 2).then(result => console.log(result));
         countries
             .getAll()
             .then(result => res.send(result))

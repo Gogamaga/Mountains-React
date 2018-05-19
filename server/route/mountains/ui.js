@@ -8,5 +8,7 @@ router.use(bodyParser.json());
 
 // GET ALL Name
 router.get("/mountains-name", mountains.getAllMountainsName);
+//GET ALL
+router.get('/', mountains.getAllForUi)
 
 module.exports = router;

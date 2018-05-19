@@ -9,7 +9,6 @@ module.exports = {
         return Fotos.find({}).exec(cb);
     },
     getOne(id) {
-        console.log(id);
         return Fotos.findById(id);
     },
     findOne(id) {

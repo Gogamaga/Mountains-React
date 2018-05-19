@@ -74,9 +74,12 @@ const router = {
         });
     },
     getArticleByMountainName(req, res) {
-        const name = req.params.name;
-        articles.findArticlesByMountainName(name).then(result => {
-            res.send(result);
+        const { mountain } = req.query;
+        const { from, limit } = req.body;
+        articles.getArticlesByMountainNameCount(mountain).then(count => {
+            articles.findArticlesByMountainName(mountain, from, limit).then(result => {
+                res.send({ articles: result, count });
+            });
         });
     },
     getAllArticlesMountainsName(req, res) {
@@ -84,7 +87,23 @@ const router = {
     },
     searchArticleByDiscription(req, res) {
         const text = req.query.search;
-        articles.searchArticleByDiscription(text).then(result => res.send(result));
+        const { from, limit } = req.body;
+        articles.getSearchArticlesByDiscriptionCount(text).then(count => {
+            articles
+                .searchArticleByDiscription(text, from, limit)
+                .then(result => res.send({ result, count }));
+        });
+    },
+    getArticlesSliced(req, res) {
+        const { from, limit } = req.body;
+        console.log(from, limit);
+        articles.getArticlesCount().then(count => {
+            articles.getArticlesSliced(from, limit).then(articles => res.send({articles, count}));
+        })
+        
+    },
+    getArticlesCount(req, res) {
+        articles.getArticlesCount().then(result => res.send(result.toString()));
     }
 };
 

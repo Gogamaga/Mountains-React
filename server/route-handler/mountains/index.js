@@ -37,8 +37,12 @@ const router = {
             .then(({ n }) => res.send(!!n))
             .catch(err => console.log(err));
     },
+    // FOR UI
     getAllMountainsName(req, res) {
         mountains.getAllMountainsName().then(result => res.send(result));
+    },
+    getAllForUi(req, res){
+        mountains.getAll().then(result => res.send(result))
     }
 };
 
